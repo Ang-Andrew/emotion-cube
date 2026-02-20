@@ -1,0 +1,29 @@
+[package]
+name = "emotion-cube"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wgpu = { version = "28", default-features = false, features = [
+    "wgsl", "webgl", "webgpu", "web",
+    "fragile-send-sync-non-atomic-wasm",
+] }
+wasm-bindgen         = "0.2"
+wasm-bindgen-futures = "0.4"
+js-sys               = "0.3"
+bytemuck             = { version = "1", features = ["derive"] }
+console_error_panic_hook = "0.1"
+getrandom            = { version = "0.2", features = ["js"] }
+
+[dependencies.web-sys]
+version  = "0.3"
+features = ["Window", "Document", "HtmlCanvasElement", "console"]
+
+[profile.release]
+opt-level     = "z"
+lto           = true
+codegen-units = 1
+strip         = true

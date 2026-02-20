@@ -1,0 +1,15 @@
+# Rust build artifacts
+/target/
+Cargo.lock
+
+# wasm-pack output (built artifact, not source)
+/frontend/public/pkg/
+
+# Next.js
+/frontend/.next/
+/frontend/node_modules/
+/frontend/.turbopack/
+
+# Misc
+.DS_Store
+*.swp
